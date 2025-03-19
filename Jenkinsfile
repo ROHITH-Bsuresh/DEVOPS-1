@@ -5,7 +5,7 @@ pipeline {
         IMAGE_NAME = "rohith87/sample"          // Replace with your Docker Hub username and image name
         TAG = "latest"
         CONTAINER_NAME = "my-container"
-        PORT = "8090"
+        PORT = "8080"
     }
 
     stages {
@@ -20,8 +20,8 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo "Building Docker image..."
-                sh 'chmod +x Build.sh'
-                sh './Build.sh'
+                sh 'chmod +x build.sh'
+                sh './build.sh'
             }
         }
 
@@ -45,8 +45,8 @@ pipeline {
         stage('Deploy Docker Container') {
             steps {
                 echo "Deploying Docker container..."
-                sh 'chmod +x Deploy.sh'
-                sh './Deploy.sh'
+                sh 'chmod +x deploy.sh'
+                sh './deploy.sh'
             }
         }
     }
